@@ -1,0 +1,33 @@
+diff -durN rat-4.2.18.orig/rat/Makefile.in rat-4.2.18/rat/Makefile.in
+--- rat-4.2.18.orig/rat/Makefile.in	Wed Apr 11 15:08:34 2001
++++ rat-4.2.18/rat/Makefile.in	Thu Jun 14 11:06:35 2001
+@@ -37,6 +37,7 @@
+ exec_prefix = @exec_prefix@
+ bindir      = @bindir@
+ mandir      = @mandir@
++sysconfdir  = @sysconfdir@
+ 
+ # Nothing below here set by configure #########################################
+ 
+@@ -158,12 +159,15 @@
+ 	-rm -rf core core-$(RATVER)-media core-$(RATVER)-ui
+ 
+ install: all
+-	./install-sh -m 555 -c rat             $(bindir)
+-	./install-sh -m 555 -c $(RATVER)       $(bindir)
+-	./install-sh -m 555 -c $(RATVER)-media $(bindir)
+-	./install-sh -m 555 -c $(RATVER)-ui    $(bindir)
+-	./install-sh -m 444 -c man/man1/rat.1  $(mandir)/man1/rat.1
+-	./install-sh -m 444 -c sdr2.plugin.S02.audio.rtp.-.$(RATVER) $(prefix)/etc/sdr/plugins
++	./install-sh -d $(DESTDIR)$(bindir)
++	./install-sh -d $(DESTDIR)$(mandir)/man1
++	./install-sh -d $(DESTDIR)$(sysconfdir)/sdr/plugins
++	./install-sh -m 555 -c rat             $(DESTDIR)$(bindir)
++	./install-sh -m 555 -c $(RATVER)       $(DESTDIR)$(bindir)
++	./install-sh -m 555 -c $(RATVER)-media $(DESTDIR)$(bindir)
++	./install-sh -m 555 -c $(RATVER)-ui    $(DESTDIR)$(bindir)
++	./install-sh -m 444 -c man/man1/rat.1  $(DESTDIR)$(mandir)/man1/rat.1
++	./install-sh -m 444 -c sdr2.plugin.S02.audio.rtp.-.$(RATVER) $(DESTDIR)$(sysconfdir)/sdr/plugins
+ 
+ installer: $(RATVER)-installer
+ 	mkdir release
