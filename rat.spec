@@ -60,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc rat/CHANGES* rat/KNOWN_BUGS* rat/CHANGES*
+%doc rat/MODS* rat/README* rat/COPYRIGHT*
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/sdr/plugins/*
