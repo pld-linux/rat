@@ -81,4 +81,4 @@ install -s -o root -g root bin/root1/rat-Linux-* %{_bindir}/rat
 
 %files
 %doc COPYRIGHT MODS README README.qfdes
-%attr(-, root, root) %{_bindir}/rat
+%attr(-,root,root) %{_bindir}/rat
