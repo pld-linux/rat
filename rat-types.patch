@@ -75,3 +75,14 @@
  #include "config_unix.h"
  #include "config_win32.h"
  #include "inet_ntop.h"
+--- rat-4.2.25/common/src/mbus_parser.c.orig	2004-01-12 17:22:44.000000000 +0000
++++ rat-4.2.25/common/src/mbus_parser.c	2004-04-12 23:27:53.000000000 +0000
+@@ -167,7 +167,7 @@
+         }
+ 
+ 	*i = strtol(m->buffer, &p, 10);
+-	if (((*i == LONG_MAX) || (*i == LONG_MIN)) && (errno == ERANGE)) {
++	if (((*i == INT_MAX) || (*i == INT_MIN)) && (errno == ERANGE)) {
+ 		debug_msg("integer out of range\n");
+ 		return FALSE;
+ 	}
