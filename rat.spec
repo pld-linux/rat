@@ -3,7 +3,7 @@ Summary:	Audio conference tool
 Summary(pl):	Narzêdzie do audio-konferencji
 Name:		rat
 Version:	4.2.18
-Release:	1
+Release:	2
 Group:		X11/Applications/Multimedia
 Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
@@ -13,6 +13,7 @@ URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/
 License:	Custom
 BuildRequires:	tcl-devel >= 8.3
 BuildRequires:	tk-devel >= 8.3
+BuildRequires:	alsa-lib-static
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -67,12 +68,14 @@ skompilowania.
 
 %build
 cd common
+aclocal
+autoconf
 %configure \
 	--enable-ipv6 
 %{__make}
 
 cd ../%{name}
-%configure \
+%configure2_13 \
 	--with-tcltk-version=8.3 \
 	--with-tcl=/usr \
 	--with-tk=/usr \
