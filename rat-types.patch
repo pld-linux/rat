@@ -86,3 +86,14 @@
  		debug_msg("integer out of range\n");
  		return FALSE;
  	}
+--- rat-4.2.25/common/src/sap.c.orig	2003-05-28 11:03:35.000000000 +0000
++++ rat-4.2.25/common/src/sap.c	2004-04-12 23:32:48.000000000 +0000
+@@ -155,7 +155,7 @@
+   printf("  Authentication Length: %d\n", 
+ 	 ntohs(p->header->authentication_length));
+   printf("  Authentication Data: %d\n", 
+-	 p->header->authentication_length ? strlen(p->authentication_data) : 0);
++	 p->header->authentication_length ? (int)strlen(p->authentication_data) : 0);
+   printf("  Message ID Hash: %d\n", 
+ 	 ntohs(p->header->message_identifier_hash));
+ 
