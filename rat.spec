@@ -28,7 +28,6 @@ cp -avf $RPM_SOURCE_DIR/auddev_linux_alsa.c src/auddev_linux.c
 
 %build
 cd tcltk/tcl8.0p2/unix
-LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--enable-gcc
 
@@ -78,7 +77,7 @@ export OSVERS=`uname -r`
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -s -o root bin/root1/rat-Linux-* %{_bindir}/rat
+install bin/root1/rat-Linux-* %{_bindir}/rat
 
 %files
 %defattr(644,root,root,755)
