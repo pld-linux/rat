@@ -29,7 +29,7 @@ cp -avf $RPM_SOURCE_DIR/auddev_linux_alsa.c src/auddev_linux.c
 %build
 cd tcltk/tcl8.0p2/unix
 CFLAGS="$RPM_OPT_FLAGS" \
-./configure %{_target} \
+./configure %{_target_platform} \
 	--prefix=/usr \
 	--enable-gcc
 make -j3
