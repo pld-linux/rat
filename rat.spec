@@ -37,11 +37,11 @@ RAT (Robust-Audio Tool) jest programem pozwalaj±cym u¿ytkownikom braæ
 udzia³ w konferencjach audio w Internecie. Mog± sie one odbywaæ
 pomiêdzy dwoma uczestnikami bezpo¶rednio lub pomiêdzy uczestnikami
 grupy multicast'owej. Do u¿ywania RAT w trybie punkt-punkt nie jest
-potrzebna ¿adna specjalna konfiguracja, lecz aby korzystaæ z mo¿liwo¶ci
-konferencji multicast'owej, przy³±cze do sieci MBone lub podobnej jest
-wymagane. RAT oparty jest na standardach IETF, u¿ywa RTP po UDP/IP
-jako protokó³ transportowy i jest zgodny z profilem RTP dotycz±cym
-konferencji audio i video z minimaln± kontrol±.
+potrzebna ¿adna specjalna konfiguracja, lecz aby korzystaæ z
+mo¿liwo¶ci konferencji multicast'owej, przy³±cze do sieci MBone lub
+podobnej jest wymagane. RAT oparty jest na standardach IETF, u¿ywa RTP
+po UDP/IP jako protokó³ transportowy i jest zgodny z profilem RTP
+dotycz±cym konferencji audio i video z minimaln± kontrol±.
 
 %package -n ucl-common-devel
 Summary:	UCL Common Code Library
@@ -53,7 +53,7 @@ Group:		Libraries
 Routines common to a number of multimedia tools like sdr, nte or wbd.
 This package is needed only for compiling them.
 
-%description -l pl -n ucl-common-devel
+%description -n ucl-common-devel -l pl
 Procedury u¿ywane przez kilka narzêdzi multimedialnych, takich jak
 sdr, nte czy wbd. Pakiet ten jest potrzebny wy³±cznie do ich
 skompilowania.
@@ -67,7 +67,7 @@ cd common
 aclocal
 autoconf
 %configure \
-	--enable-ipv6 
+	--enable-ipv6
 %{__make}
 
 cd ../%{name}
@@ -77,10 +77,10 @@ cd ../%{name}
 	--with-tk=/usr \
 	--enable-ipv6 \
 	%{!?debug:--enable-optimize} \
-	%{?debug:--enable-debug} 
-#	--with-common=/usr/include/ucl 
+	%{?debug:--enable-debug}
+#	--with-common=/usr/include/ucl
 %{__make} EXTERNAL_DEP=""
-	
+
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -92,7 +92,7 @@ gzip -nf common/{MODS,COPYRIGHT,README}
 
 cd rat
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
-gzip -9nf README* COPYRIGHT MODS 
+gzip -9nf README* COPYRIGHT MODS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
