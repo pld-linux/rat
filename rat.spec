@@ -94,7 +94,6 @@ gzip -nf common/{MODS,COPYRIGHT,README}
 
 cd rat
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
-gzip -9nf README* COPYRIGHT MODS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
