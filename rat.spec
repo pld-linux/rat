@@ -5,16 +5,16 @@ Name:		rat
 Version:	4.2.21
 Release:	1
 License:	BSD-like
-Group:		X11/Applications/Multimedia
+Group:		X11/Applications/Sound
 Source0:	http://www-mice.cs.ucl.ac.uk/multimedia/software/%{name}/%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-FHS_DESTDIR.patch
 Patch1:		%{name}-ipv6.patch
 URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/
-BuildRequires:	tcl-devel >= 8.3
-BuildRequires:	tk-devel >= 8.3
 BuildRequires:	alsa-lib-static
 #BuildRequires:	autoconf
 #BuildRequires:	automake
+BuildRequires:	tcl-devel >= 8.3
+BuildRequires:	tk-devel >= 8.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -66,8 +66,8 @@ skompilowania.
 
 %build
 cd common
-#aclocal
-#autoconf
+#%{__aclocal}
+#%{__autoconf}
 %configure2_13 \
 	--enable-ipv6
 %{__make}
@@ -90,7 +90,6 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_commonlibdir},%{_commonincludedir}}
 install common/src/lib*.a $RPM_BUILD_ROOT%{_commonlibdir}
 install common/src/*.h $RPM_BUILD_ROOT%{_commonincludedir}
-gzip -nf common/{MODS,COPYRIGHT,README}
 
 cd rat
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
