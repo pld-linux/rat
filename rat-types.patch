@@ -1,0 +1,14 @@
+--- rat-4.2.25/common/src/mbus.c.orig	2004-04-12 20:55:08.000000000 +0000
++++ rat-4.2.25/common/src/mbus.c	2004-04-12 20:58:47.000000000 +0000
+@@ -265,9 +265,9 @@
+ 	mb_bufpos = mb_buffer + MBUS_AUTH_LEN;
+       /* monster kludge */
+       if(*dst == '(')
+-	    sprintf(mb_bufpos, "\nmbus/1.0 %6d %ld%03ld %c (%s) %s ", seqnum, ts.tv_sec,ts.tv_usec/1000, reliable, src, dst);
++	    sprintf(mb_bufpos, "\nmbus/1.0 %6d %ld%03ld %c (%s) %s ", seqnum, ts.tv_sec,(long)ts.tv_usec/1000, reliable, src, dst);
+       else
+-	    sprintf(mb_bufpos, "\nmbus/1.0 %6d %ld%03ld %c (%s) (%s) ", seqnum, ts.tv_sec,ts.tv_usec/1000, reliable, src, dst);
++	    sprintf(mb_bufpos, "\nmbus/1.0 %6d %ld%03ld %c (%s) (%s) ", seqnum, ts.tv_sec,(long)ts.tv_usec/1000, reliable, src, dst);
+ 
+       mb_bufpos += strlen(mb_bufpos);
+ 	if (ackseq == -1) {
