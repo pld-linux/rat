@@ -2,7 +2,7 @@ Summary:	Robust-Audio Tool
 Name:		rat-step-alsa
 Version:	3.0.23
 Release:	1
-Source0:	rat-3.0.23.tar.gz
+Source0:	rat-%{version}.tar.gz
 Source10:	tcl8.0p2.tar.gz
 Source11:	tk8.0p2.tar.gz
 #Source12:	TkInterStep-1.5a4-p2.tar.gz
@@ -11,6 +11,7 @@ Source20:	auddev_linux_alsa.c
 Patch0:		rat-3.0.23.patch
 License:	GPL
 Group:		Applications/Networking
+Group(de):	Applikationen/Netzwerkwesen
 Group(pl):	Aplikacje/Sieciowe
 
 %description
@@ -20,11 +21,11 @@ RAT for MBONE
 %setup -q -n rat-3.0
 %patch -p0
 mkdir tcltk
-tar x -C tcltk -vvzf $RPM_SOURCE_DIR/tcl8.0p2.tar.gz
-tar x -C tcltk -vvzf $RPM_SOURCE_DIR/tk8.0p2.tar.gz
-#tar x -C tcltk -vvzf $RPM_SOURCE_DIR/TkInterStep-1.5a4-p2.tar.gz
-cd tcltk; zcat $RPM_SOURCE_DIR/tk8.0p2-to-TkStep8.0p2.patch.gz | patch -p0; cd ..
-cp -avf $RPM_SOURCE_DIR/auddev_linux_alsa.c src/auddev_linux.c
+tar x -C tcltk -vvzf %{SOURCE10}
+tar x -C tcltk -vvzf %{SOURCE11}
+#tar x -C tcltk -vvzf %{SOURCE12}
+cd tcltk; zcat %{SOURCE13} | patch -p0; cd ..
+cp -avf %{SOURCE20} src/auddev_linux.c
 
 %build
 cd tcltk/tcl8.0p2/unix
@@ -36,15 +37,15 @@ mkdir -p ../lib
 cd ../lib
 mkdir -p include lib
 cd include
-ln -s ../../generic/tcl.h
+ln -sf ../../generic/tcl.h
 cd ../lib
-ln -s ../../unix/libtcl8.0.a libtcl.a
-ln -s ../../library tcl
+ln -sf ../../unix/libtcl8.0.a libtcl.a
+ln -sf ../../library tcl
 cd ../../../..
 
 cd tcltk/tk8.0p2/unix
 autoconf
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix} \
+CFLAGS="%{rpmcflags}" ./configure --prefix=%{_prefix} \
         --with-tcl=../../tcl8.0p2/unix \
         --enable-gcc \
         --enable-step \
@@ -55,10 +56,10 @@ mkdir -p ../lib
 cd ../lib
 mkdir -p include lib
 cd include
-ln -s ../../generic/tk.h
+ln -sf ../../generic/tk.h
 cd ../lib
-ln -s ../../unix/libtkstep8.0.a libtk.a
-ln -s ../../library tk
+ln -sf ../../unix/libtkstep8.0.a libtk.a
+ln -sf ../../library tk
 cd ../../../..
 
 # let build script create directories
@@ -79,7 +80,10 @@ export OSVERS=`uname -r`
 rm -rf $RPM_BUILD_ROOT
 install bin/root1/rat-Linux-* %{_bindir}/rat
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %files
 %defattr(644,root,root,755)
 %doc COPYRIGHT MODS README README.qfdes
-%attr(-,root,root) %{_bindir}/rat
+%attr(755,root,root) %{_bindir}/rat
