@@ -6,8 +6,6 @@ Version:	4.2.18
 Release:	2
 License:	Custom
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://www-mice.cs.ucl.ac.uk/multimedia/software/%{name}/%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-FHS_DESTDIR.patch
 URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/
@@ -50,13 +48,6 @@ Summary:	UCL Common Code Library
 Summary(pl):	Biblioteka uøywana przez multimedialne narzÍdzia UCL
 Version:	1.2.8
 Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	‚…¬Ã…œ‘≈À…
-Group(uk):	‚¶¬Ã¶œ‘≈À…
 
 %description -n ucl-common-devel
 Routines common to a number of multimedia tools like sdr, nte or wbd.
