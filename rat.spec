@@ -39,7 +39,7 @@ RAT (Robust-Audio Tool) jest programem pozwalaj±cym u¿ytkownikom braæ
 udzia³ w konferencjach audio w Internecie. Mog± sie one odbywaæ
 pomiêdzy dwoma uczestnikami bezpo¶rednio lub pomiêdzy uczestnikami
 grupy multicast'owej. Do u¿ywania RAT w trybie punkt-punkt nie jest
-potrzebna ¿adna specjalna konfiguracja, lecz aby ko¿ystaæ z mo¿liwo¶ci
+potrzebna ¿adna specjalna konfiguracja, lecz aby korzystaæ z mo¿liwo¶ci
 konferencji multicast'owej, przy³±cze do sieci MBone lub podobnej jest
 wymagane. RAT oparty jest na standardach IETF, u¿ywa RTP po UDP/IP
 jako protokó³ transportowy i jest zgodny z profilem RTP dotycz±cym
