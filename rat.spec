@@ -19,6 +19,7 @@ Patch3:		%{name}-acfix.patch
 Patch4:		%{name}-alsa.patch
 Patch5:		%{name}-tcl.patch
 Patch6:		%{name}-types.patch
+Patch7:		%{name}-Werror.patch
 URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/rat/
 %{?with_alsa:BuildRequires:	alsa-lib-devel}
 BuildRequires:	autoconf
@@ -107,6 +108,7 @@ Statyczna biblioteka wspólnego kodu UCL.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
 
 %build
 cd common
