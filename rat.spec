@@ -7,7 +7,7 @@ Summary:	Audio conference tool
 Summary(pl):	Narzêdzie do audio-konferencji
 Name:		rat
 Version:	4.2.25
-Release:	1
+Release:	2
 License:	BSD-like
 Group:		X11/Applications/Sound
 Source0:	http://www-mice.cs.ucl.ac.uk/multimedia/software/rat/releases/%{version}/%{name}-%{version}.tar.gz
@@ -18,6 +18,7 @@ Patch2:		%{name}-common-shared.patch
 Patch3:		%{name}-acfix.patch
 Patch4:		%{name}-alsa.patch
 Patch5:		%{name}-tcl.patch
+Patch6:		%{name}-types.patch
 URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/rat/
 %{?with_alsa:BuildRequires:	alsa-lib-devel}
 BuildRequires:	autoconf
@@ -105,6 +106,7 @@ Statyczna biblioteka wspólnego kodu UCL.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 cd common
