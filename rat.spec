@@ -8,12 +8,13 @@ License:	BSD-like
 Group:		X11/Applications/Multimedia
 Source0:	http://www-mice.cs.ucl.ac.uk/multimedia/software/%{name}/%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-FHS_DESTDIR.patch
+Patch1:		%{name}-ipv6.patch
 URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/
 BuildRequires:	tcl-devel >= 8.3
 BuildRequires:	tk-devel >= 8.3
 BuildRequires:	alsa-lib-static
-BuildRequires:	autoconf
-BuildRequires:	automake
+#BuildRequires:	autoconf
+#BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -61,12 +62,13 @@ skompilowania.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p0
 
 %build
 cd common
-aclocal
-autoconf
-%configure \
+#aclocal
+#autoconf
+%configure2_13 \
 	--enable-ipv6
 %{__make}
 
