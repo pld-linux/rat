@@ -219,10 +219,9 @@ diff -Nur rat-4.2.23/common.orig/src/boxes-fst.dat rat-4.2.23/common/src/boxes-f
 +static word32 rcon[30] = { 
    0x01,0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36, 0x6c, 0xd8, 0xab, 0x4d, 0x9a, 0x2f, 0x5e, 0xbc, 0x63, 0xc6, 0x97, 0x35, 0x6a, 0xd4, 0xb3, 0x7d, 0xfa, 0xef, 0xc5, 0x91
  };
-diff -Nur rat-4.2.23/common.orig/src/Makefile.in rat-4.2.23/common/src/Makefile.in
---- rat-4.2.23/common.orig/src/Makefile.in	2001-04-27 00:58:23.000000000 +0200
-+++ rat-4.2.23/common/src/Makefile.in	2003-04-19 22:46:55.000000000 +0200
-@@ -10,27 +10,39 @@
+--- rat-4.2.25/common.orig/src/Makefile.in	2001-04-27 00:58:23.000000000 +0200
++++ rat-4.2.25/common/src/Makefile.in	2003-04-19 22:46:55.000000000 +0200
+@@ -10,28 +10,40 @@
  AR     = ar
  RANLIB = @RANLIB@
  HOST   = @host@
@@ -237,14 +236,16 @@ diff -Nur rat-4.2.23/common.orig/src/Makefile.in rat-4.2.23/common/src/Makefile.
  
 -OBJS = crypt_random.o debug.o md5.o memory.o net_udp.o qfDES.o util.o hmac.o  \
 -       base64.o ntp.o rtp.o drand48.o mbus_parser.o mbus_config.o mbus_addr.o \
--       mbus.o btree.o asarray.o @LIBOBJS@ rijndael-alg-fst.o rijndael-api-fst.o
+-       mbus.o btree.o asarray.o @LIBOBJS@ rijndael-alg-fst.o \
+-       rijndael-api-fst.o sdp.o sap.o 
 +OBJS = crypt_random.lo debug.lo md5.lo memory.lo net_udp.lo qfDES.lo util.lo hmac.lo  \
 +       base64.lo ntp.lo rtp.lo drand48.lo mbus_parser.lo mbus_config.lo mbus_addr.lo \
-+       mbus.lo btree.lo asarray.lo @LTLIBOBJS@ rijndael-alg-fst.lo rijndael-api-fst.lo
++       mbus.lo btree.lo asarray.lo @LTLIBOBJS@ rijndael-alg-fst.lo \
++       rijndael-api-fst.lo sdp.lo sap.lo 
 +
 +HEADERS = asarray.h base64.h btree.h crypt_random.h drand48.h hmac.h mbus.h \
 +	mbus_addr.h mbus_config.h mbus_parser.h md5.h net_udp.h ntp.h qfDES.h \
-+	rijndael-alg-fst.h rijndael-api-fst.h rtp.h version.h
++	rijndael-alg-fst.h rijndael-api-fst.h rtp.h sap.h sdp.h version.h
  
 -SRCS = $(OBJS:%.o=%.c)
 +SRCS = $(OBJS:%.lo=%.c)
