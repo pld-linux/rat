@@ -12,3 +12,66 @@
  
        mb_bufpos += strlen(mb_bufpos);
  	if (ackseq == -1) {
+--- rat-4.2.25/rat/ui_send_audio.c.orig	2004-01-12 17:14:46.000000000 +0000
++++ rat-4.2.25/rat/ui_send_audio.c	2004-04-12 22:55:39.000000000 +0000
+@@ -279,7 +279,7 @@
+ 	if (sp->logger != NULL) {
+ 		struct timeval	t;
+ 		gettimeofday(&t, NULL);
+-		fprintf(sp->logger, "silence    %lu.%06lu 0x%08lx %s\n", t.tv_sec + SECS_BETWEEN_1900_1970, t.tv_usec,
++		fprintf(sp->logger, "silence    %lu.%06lu 0x%08lx %s\n", t.tv_sec + SECS_BETWEEN_1900_1970, (unsigned long)t.tv_usec,
+ 		        (unsigned long) rtp_my_ssrc(sp->rtp_session[0]), name);
+ 	}
+ }
+@@ -372,7 +372,7 @@
+ 		struct timeval	t;
+ 		gettimeofday(&t, NULL);
+ 		fprintf(sp->logger, "channel    %lu.%06lu 0x%08lx redundancy %s\n",
+-		        t.tv_sec + SECS_BETWEEN_1900_1970, t.tv_usec,
++		        t.tv_sec + SECS_BETWEEN_1900_1970, (unsigned long)t.tv_usec,
+ 		        (unsigned long) rtp_my_ssrc(sp->rtp_session[0]), scf->long_name);
+ 	}
+ 
+@@ -454,7 +454,7 @@
+ 			struct timeval	t;
+ 			gettimeofday(&t, NULL);
+ 			fprintf(sp->logger, "channel    %lu.%06lu 0x%08lx none\n",
+-				t.tv_sec+SECS_BETWEEN_1900_1970, t.tv_usec, (unsigned long) rtp_my_ssrc(sp->rtp_session[0]));
++				t.tv_sec+SECS_BETWEEN_1900_1970, (unsigned long)t.tv_usec, (unsigned long) rtp_my_ssrc(sp->rtp_session[0]));
+ 		}
+                 break;
+         case 'r':
+@@ -486,7 +486,7 @@
+ 		struct timeval	t;
+ 		gettimeofday(&t, NULL);
+ 		fprintf(sp->logger, "codec      %lu.%06lu 0x%08lx %s\n",
+-			t.tv_sec+SECS_BETWEEN_1900_1970, t.tv_usec, (unsigned long) rtp_my_ssrc(sp->rtp_session[0]),
++			t.tv_sec+SECS_BETWEEN_1900_1970, (unsigned long)t.tv_usec, (unsigned long) rtp_my_ssrc(sp->rtp_session[0]),
+ 			pri_cf->long_name);
+ 	}
+ }
+--- rat-4.2.25/common/src/inet_ntop.h.orig	2000-01-20 16:11:19.000000000 +0000
++++ rat-4.2.25/common/src/inet_ntop.h	2004-04-12 23:02:43.000000000 +0000
+@@ -1,4 +1,4 @@
+-#ifndef HAVE_INET_NTOP
++#ifdef NEED_INET_NTOP
+ #if defined(__cplusplus)
+ extern "C" {
+ #endif
+@@ -8,4 +8,4 @@
+ #if defined(__cplusplus)
+ }
+ #endif
+-#endif /* HAVE_INET_NTOP */
++#endif /* NEED_INET_NTOP */
+--- rat-4.2.25/common/src/inet_ntop.c.orig	1999-12-02 16:07:31.000000000 +0000
++++ rat-4.2.25/common/src/inet_ntop.c	2004-04-12 23:03:06.000000000 +0000
+@@ -16,7 +16,7 @@
+  * SOFTWARE.
+  */
+ 
+-#ifndef HAVE_INET_NTOP
++#ifdef NEED_INET_NTOP
+ #include "config_unix.h"
+ #include "config_win32.h"
+ #include "inet_ntop.h"
