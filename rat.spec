@@ -4,7 +4,7 @@ Summary(pl):	Narzêdzie do audio-konferencji
 Name:		rat
 Version:	4.2.18
 Release:	2
-License:	Custom
+License:	custom
 Group:		X11/Applications/Multimedia
 Source0:	http://www-mice.cs.ucl.ac.uk/multimedia/software/%{name}/%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-FHS_DESTDIR.patch
