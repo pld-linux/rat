@@ -163,6 +163,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %if 0
 %files -n ucl-common
+%defattr(644,root,root,755)
 %doc common/{COPYRIGHT,MODS,README,src/README.qfdes}
 %attr(755,root,root) %{_libdir}/libuclmmbase.so.*.*.*
 
