@@ -17,8 +17,6 @@ BuildRequires:	tcl-devel >= 8.3
 BuildRequires:	tk-devel >= 8.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 %define 	_commonlibdir	/usr/lib
 %define 	_commonincludedir /usr/include/ucl
 
