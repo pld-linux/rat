@@ -54,6 +54,9 @@ Group(de):	Libraries
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	Библиотеки
+Group(uk):	Б╕бл╕отеки
 
 %description -n ucl-common-devel
 Routines common to a number of multimedia tools like sdr, nte or wbd.
