@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _without_alsa		- without ALSA support
+%bcond_without	alsa		# without ALSA support
 #
 %define		_commonlibver	1.2.13
 Summary:	Audio conference tool
@@ -18,7 +18,7 @@ Patch2:		%{name}-common-shared.patch
 Patch3:		%{name}-acfix.patch
 Patch4:		%{name}-alsa.patch
 URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/rat/
-%{!?_without_alsa:BuildRequires:	alsa-lib-devel}
+%{?with_alsa:BuildRequires:	alsa-lib-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk-doc
@@ -126,7 +126,7 @@ cp -f /usr/share/automake/config.* .
 	--enable-ipv6 \
 	%{!?debug:--enable-optimize} \
 	%{?debug:--enable-debug} \
-	%{?_without_alsa:--without-alsa}
+	%{!?with_alsa:--without-alsa}
 #	--with-common=/usr/include/ucl
 %{__make} EXTERNAL_DEP=""
 
