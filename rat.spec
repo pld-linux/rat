@@ -1,12 +1,10 @@
-Summary:	UCL Network Text Editor
+Summary:	Robust-Audio Tool
 Name:		rat
 Version:	4.2.18
 Release:	1
-Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
+Group:		X11/Applications/Multimedia
+Group(de):	X11/Applikationen/Multimedia
+Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://www-mice.cs.ucl.ac.uk/multimedia/software/%{name}/%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-FHS_DESTDIR.patch
 URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/
@@ -18,7 +16,15 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix	/usr/X11R6
 
 %description
-NTE is a shared text editor designed for use on the Mbone.
+RAT is a network audio tool that allows users to particpate in audio
+conferences over the internet. These can be between two participants
+directly, or between a group of participants on a common multicast
+group. No special features are required to use RAT in point-to-point
+mode, but to use the multicast conferencing facilities of RAT, a
+connection to the Mbone, or a similar multicast capable network, is
+required. RAT is based on IETF standards, using RTP above UDP/IP as
+its transport protocol, and conforming to the RTP profile for audio
+and video conferences with minimal control.
 
 %prep
 %setup -q
