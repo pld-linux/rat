@@ -6,10 +6,10 @@ Version:	4.2.21
 Release:	1
 License:	BSD-like
 Group:		X11/Applications/Sound
-Source0:	http://www-mice.cs.ucl.ac.uk/multimedia/software/%{name}/%{version}/%{name}-%{version}.tar.gz
+Source0:	http://www-mice.cs.ucl.ac.uk/multimedia/software/rat/releases/%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-FHS_DESTDIR.patch
 Patch1:		%{name}-ipv6.patch
-URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/
+URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/rat/
 BuildRequires:	alsa-lib-static
 #BuildRequires:	autoconf
 #BuildRequires:	automake
