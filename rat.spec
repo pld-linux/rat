@@ -64,8 +64,8 @@ skompilowania.
 
 %build
 cd common
-#%{__aclocal}
-#%{__autoconf}
+#%%{__aclocal}
+#%%{__autoconf}
 %configure2_13 \
 	--enable-ipv6
 %{__make}
