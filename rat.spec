@@ -14,6 +14,7 @@ BuildRequires:	tk-devel >= 8.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix	/usr/X11R6
+%define		_mandir		%{_prefix}/man
 
 %description
 RAT is a network audio tool that allows users to particpate in audio
