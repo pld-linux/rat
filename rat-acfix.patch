@@ -1,0 +1,65 @@
+--- rat-4.2.23/common/configure.in.orig	2003-04-19 22:54:58.000000000 +0200
++++ rat-4.2.23/common/configure.in	2003-04-19 22:58:40.000000000 +0200
+@@ -205,7 +205,7 @@
+ 		case $i in
+ 		inria)
+ 			dnl http://www.kame.net/
+-			AC_EGREP_CPP(yes, [dnl
++			AC_EGREP_CPP(yes, [
+ #include <netinet/in.h>
+ #ifdef IPV6_INRIA_VERSION
+ yes
+@@ -215,7 +215,7 @@
+ 			;;
+ 		kame)
+ 			dnl http://www.kame.net/
+-			AC_EGREP_CPP(yes, [dnl
++			AC_EGREP_CPP(yes, [
+ #include <netinet/in.h>
+ #ifdef __KAME__
+ yes
+@@ -233,7 +233,7 @@
+ 			;;
+ 		linux-glibc)
+ 			dnl http://www.v6.linux.or.jp/
+-			AC_EGREP_CPP(yes, [dnl
++			AC_EGREP_CPP(yes, [
+ #include <features.h>
+ #if defined(__GLIBC__) && __GLIBC__ >= 2 && __GLIBC_MINOR__ >= 1
+ yes
+@@ -252,7 +252,7 @@
+ 			fi
+ 			;;
+ 		toshiba)
+-			AC_EGREP_CPP(yes, [dnl
++			AC_EGREP_CPP(yes, [
+ #include <sys/param.h>
+ #ifdef _TOSHIBA_INET6
+ yes
+@@ -263,7 +263,7 @@
+ 				CFLAGS="-DINET6 $CFLAGS"])
+ 			;;
+ 		v6d)
+-			AC_EGREP_CPP(yes, [dnl
++			AC_EGREP_CPP(yes, [
+ #include </usr/local/v6/include/sys/v6config.h>
+ #ifdef __V6D__
+ yes
+@@ -274,7 +274,7 @@
+ 				CFLAGS="-I/usr/local/v6/include $CFLAGS"])
+ 			;;
+ 		zeta)
+-			AC_EGREP_CPP(yes, [dnl
++			AC_EGREP_CPP(yes, [
+ #include <sys/param.h>
+ #ifdef _ZETA_MINAMI_INET6
+ yes
+--- rat-4.2.23/rat/configure.in.orig	2003-04-19 23:09:24.000000000 +0200
++++ rat-4.2.23/rat/configure.in	2003-04-19 23:15:56.000000000 +0200
+@@ -627,3 +627,6 @@
+ #------------------------------------------------------------------------------
+ AC_OUTPUT(Makefile)
+ 
++m4_pattern_allow(AU_INC)
++m4_pattern_allow(AU_LIB)
++m4_pattern_allow(AU_OBJ)

@@ -1,0 +1,22 @@
+--- rat-4.2.23/rat/configure.in.orig	2003-04-19 22:59:24.000000000 +0200
++++ rat-4.2.23/rat/configure.in	2003-04-19 23:08:06.000000000 +0200
+@@ -186,14 +186,18 @@
+ 		],AC_MSG_RESULT(missing))
+ 	])
+ 	# Do we have ALSA?
++	AC_ARG_WITH(alsa, [AC_HELP_STRING([--without-alsa],[disable ALSA])],
++		[with_alsa="$withval"], [with_alsa=yes])
++	if test "$with_alsa" != "no"; then
+ 	AC_CHECK_HEADER(sys/asoundlib.h,[
+ 		AU_OBJ="$AU_OBJ auddev_alsa.o"
+-		AU_LIB="$AU_LIB /usr/lib/libasound.a"
++		AU_LIB="$AU_LIB -lasound"
+ 		AC_DEFINE(HAVE_ALSA_AUDIO)
+ 		# HAVE_OSS_AUDIO is defined so that the ALSA OSS emulation
+ 		# works for those cards which are not supported natively
+ 		AC_DEFINE(HAVE_OSS_AUDIO)
+ 	])
++	fi
+ 	# Default is to use OSS drivers...
+ 	AU_OBJ="$AU_OBJ auddev_oss.o"
+ 	AC_CHECK_HEADERS(sys/soundcard.h soundcard.h)
