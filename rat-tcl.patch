@@ -1,0 +1,29 @@
+--- rat-4.2.25/rat/tcltk.c.orig	2004-01-12 18:14:45.000000000 +0100
++++ rat-4.2.25/rat/tcltk.c	2004-04-13 00:02:19.317953336 +0200
+@@ -239,7 +239,7 @@
+ }
+ 
+ static int
+-mbus_send_cmd(ClientData ttp, Tcl_Interp *i, int argc, char *argv[])
++mbus_send_cmd(ClientData ttp, Tcl_Interp *i, int argc, const char *argv[])
+ {
+ 	if (argc != 4) {
+ 		i->result = "mbus_send <reliable> <cmnd> <args>";
+@@ -250,7 +250,7 @@
+ }
+ 
+ static int
+-mbus_encode_cmd(ClientData ttp, Tcl_Interp *i, int argc, char *argv[])
++mbus_encode_cmd(ClientData ttp, Tcl_Interp *i, int argc, const char *argv[])
+ {
+ 	UNUSED(ttp);
+ 	if (argc != 2) {
+@@ -280,7 +280,7 @@
+ 
+ 	Tcl_FindExecutable(argv[0]);
+ 	interp        = Tcl_CreateInterp();
+-	cmd_line_args = Tcl_Merge(argc - 1, argv + 1);
++	cmd_line_args = Tcl_Merge(argc - 1, (const char**)(argv + 1));
+ 	Tcl_SetVar(interp, "argv", cmd_line_args, TCL_GLOBAL_ONLY);
+ #ifndef WIN32
+ 	ckfree(cmd_line_args);
