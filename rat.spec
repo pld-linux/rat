@@ -1,30 +1,32 @@
 #
 # Conditional build:
-%bcond_without	alsa		# without ALSA support
+%bcond_with	alsa		# with ALSA support (0.5 only)
 #
-%define		_commonlibver	1.2.13
+%define		_commonlibver	1.2.16
 Summary:	Audio conference tool
 Summary(pl):	Narzêdzie do audio-konferencji
 Name:		rat
-Version:	4.2.23
+Version:	4.2.25
 Release:	1
 License:	BSD-like
 Group:		X11/Applications/Sound
 Source0:	http://www-mice.cs.ucl.ac.uk/multimedia/software/rat/releases/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	d421390f842556701dc5f6368bd54d09
+# Source0-md5:	d959a507b27573f80511fd6739b33514
 Patch0:		%{name}-FHS_DESTDIR.patch
 Patch1:		%{name}-ipv6.patch
 Patch2:		%{name}-common-shared.patch
 Patch3:		%{name}-acfix.patch
 Patch4:		%{name}-alsa.patch
+Patch5:		%{name}-tcl.patch
 URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/rat/
 %{?with_alsa:BuildRequires:	alsa-lib-devel}
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk-doc
 BuildRequires:	libtool
-BuildRequires:	tcl-devel >= 8.3
-BuildRequires:	tk-devel >= 8.3
+BuildRequires:	tcl-devel >= 8.4
+BuildRequires:	tk-devel >= 8.4
+BuildRequires:	ucl-common-devel >= %{_commonlibver}
 Requires:	ucl-common >= %{_commonlibver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -102,6 +104,7 @@ Statyczna biblioteka wspólnego kodu UCL.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 cd common
@@ -113,14 +116,13 @@ cp -f /usr/share/automake/config.* .
 	--enable-ipv6 \
 	--includedir=%{_commonincludedir}
 %{__make}
-
-cd ../%{name}
+cd ../rat
 cp -f /usr/share/automake/config.* .
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %configure \
-	--with-tcltk-version=8.3 \
+	--with-tcltk-version=8.4 \
 	--with-tcl=/usr \
 	--with-tk=/usr \
 	--enable-ipv6 \
@@ -128,13 +130,16 @@ cp -f /usr/share/automake/config.* .
 	%{?debug:--enable-debug} \
 	%{!?with_alsa:--without-alsa}
 #	--with-common=/usr/include/ucl
-%{__make} EXTERNAL_DEP=""
+%{__make} \
+	EXTERNAL_DEP=""
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
+%if 0
 %{__make} -C common/src install \
 	DESTDIR=$RPM_BUILD_ROOT
+%endif
 
 %{__make} -C rat install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -154,6 +159,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/sdr/plugins
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/sdr/plugins/*
 
+%if 0
 %files -n ucl-common
 %doc common/{COPYRIGHT,MODS,README,src/README.qfdes}
 %attr(755,root,root) %{_libdir}/libuclmmbase.so.*.*.*
@@ -168,3 +174,4 @@ rm -rf $RPM_BUILD_ROOT
 %files -n ucl-common-static
 %defattr(644,root,root,755)
 %{_libdir}/libuclmmbase.a
+%endif
