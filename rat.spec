@@ -77,8 +77,8 @@ make OSTYPE=Linux \
      bin/root1/rat-Linux-$OSVERS
 
 %install
-install -s -o root -g root bin/root1/rat-Linux-* /usr/bin/rat
+install -s -o root -g root bin/root1/rat-Linux-* %{_bindir}/rat
 
 %files
 %doc COPYRIGHT MODS README README.qfdes
-%attr(-, root, root) /usr/bin/rat
+%attr(-, root, root) %{_bindir}/rat
