@@ -4,16 +4,18 @@ Summary(pl):	Narzêdzie do audio-konferencji
 Name:		rat
 Version:	4.2.18
 Release:	2
+License:	Custom
 Group:		X11/Applications/Multimedia
 Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://www-mice.cs.ucl.ac.uk/multimedia/software/%{name}/%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-FHS_DESTDIR.patch
 URL:		http://www-mice.cs.ucl.ac.uk/multimedia/software/
-License:	Custom
 BuildRequires:	tcl-devel >= 8.3
 BuildRequires:	tk-devel >= 8.3
 BuildRequires:	alsa-lib-static
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
