@@ -1,0 +1,21 @@
+--- common/src/net_udp.c.orig	Fri Apr 26 21:12:46 2002
++++ common/src/net_udp.c	Fri Apr 26 21:14:03 2002
+@@ -596,8 +596,6 @@
+ 	
+ 	assert(s != NULL);
+ 	assert(s->mode == IPv6);
+-	assert(buffer != NULL);
+-	assert(buflen > 0);
+ 	
+ 	memset((char *)&s_in, 0, sizeof(s_in));
+ 	s_in.sin6_family = AF_INET6;
+--- common/examples/rtp/rtpdemo.c.old	Fri Apr 26 21:25:00 2002
++++ common/examples/rtp/rtpdemo.c	Fri Apr 26 21:26:22 2002
+@@ -13,6 +13,7 @@
+ #include <string.h>
+ #include <unistd.h>
+ 
++#include "config_unix.h"
+ #include "uclconf.h"
+ #include "debug.h"
+ #include "memory.h"
