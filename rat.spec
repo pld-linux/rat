@@ -32,7 +32,7 @@ CFLAGS="$RPM_OPT_FLAGS" \
 ./configure %{_target_platform} \
 	--prefix=/usr \
 	--enable-gcc
-make -j3
+%{__make} -j3
 mkdir -p ../lib
 cd ../lib
 mkdir -p include lib
@@ -51,7 +51,7 @@ CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr \
         --enable-step \
         --enable-xpm \
         --enable-tiff
-make -j3
+%{__make} -j3
 mkdir -p ../lib
 cd ../lib
 mkdir -p include lib
@@ -68,7 +68,7 @@ cd ../../../..
 export OSTYPE=Linux
 export OSMVER=`uname -r | awk -F. '{printf("%d_%d", $1, $2)}'`
 export OSVERS=`uname -r`
-make OSTYPE=Linux \
+%{__make} OSTYPE=Linux \
      OSMVER=$OSMVER \
      OSVERS=$OSVERS \
      USER=root1 \
