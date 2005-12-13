@@ -161,7 +161,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %dir %{_sysconfdir}/sdr
 %dir %{_sysconfdir}/sdr/plugins
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/sdr/plugins/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/sdr/plugins/*
 
 %if 0
 %files -n ucl-common
