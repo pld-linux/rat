@@ -4,7 +4,7 @@
 #
 %define		_commonlibver	1.2.16
 Summary:	Audio conference tool
-Summary(pl):	Narzêdzie do audio-konferencji
+Summary(pl.UTF-8):   NarzÄ™dzie do audio-konferencji
 Name:		rat
 Version:	4.2.25
 Release:	2
@@ -45,20 +45,20 @@ capable network, is required. RAT is based on IETF standards, using
 RTP above UDP/IP as its transport protocol, and conforming to the RTP
 profile for audio and video conferences with minimal control.
 
-%description -l pl
-RAT (Robust-Audio Tool) jest programem pozwalaj±cym u¿ytkownikom braæ
-udzia³ w konferencjach audio w Internecie. Mog± sie one odbywaæ
-pomiêdzy dwoma uczestnikami bezpo¶rednio lub pomiêdzy uczestnikami
-grupy multicastowej. Do u¿ywania RAT w trybie punkt-punkt nie jest
-potrzebna ¿adna specjalna konfiguracja, lecz aby korzystaæ z
-mo¿liwo¶ci konferencji multicastowej, przy³±cze do sieci MBone lub
-podobnej jest wymagane. RAT oparty jest na standardach IETF, u¿ywa RTP
-po UDP/IP jako protokó³ transportowy i jest zgodny z profilem RTP
-dotycz±cym konferencji audio i video z minimaln± kontrol±.
+%description -l pl.UTF-8
+RAT (Robust-Audio Tool) jest programem pozwalajÄ…cym uÅ¼ytkownikom braÄ‡
+udziaÅ‚ w konferencjach audio w Internecie. MogÄ… sie one odbywaÄ‡
+pomiÄ™dzy dwoma uczestnikami bezpoÅ›rednio lub pomiÄ™dzy uczestnikami
+grupy multicastowej. Do uÅ¼ywania RAT w trybie punkt-punkt nie jest
+potrzebna Å¼adna specjalna konfiguracja, lecz aby korzystaÄ‡ z
+moÅ¼liwoÅ›ci konferencji multicastowej, przyÅ‚Ä…cze do sieci MBone lub
+podobnej jest wymagane. RAT oparty jest na standardach IETF, uÅ¼ywa RTP
+po UDP/IP jako protokÃ³Å‚ transportowy i jest zgodny z profilem RTP
+dotyczÄ…cym konferencji audio i video z minimalnÄ… kontrolÄ….
 
 %package -n ucl-common
 Summary:	UCL Common Code Library
-Summary(pl):	Biblioteka wspólnego kodu UCL
+Summary(pl.UTF-8):   Biblioteka wspÃ³lnego kodu UCL
 Version:	%{_commonlibver}
 Group:		Libraries
 
@@ -68,15 +68,15 @@ The library originates from work on the RAT project: these are
 portions that are not directly related to an audio tool and
 potentially useful elsewhere.
 
-%description -n ucl-common -l pl
-Procedury u¿ywane przez kilka narzêdzi multimedialnych, takich jak
-sdr, nte czy wbd. Biblioteka ta wywodzi siê z prac nad projektem RAT,
-ale jej czêsci nie s± zwi±zane wy³±cznie z narzêdziami do d¼wiêku i
-mog± byæ przydatne do innych celów.
+%description -n ucl-common -l pl.UTF-8
+Procedury uÅ¼ywane przez kilka narzÄ™dzi multimedialnych, takich jak
+sdr, nte czy wbd. Biblioteka ta wywodzi siÄ™ z prac nad projektem RAT,
+ale jej czÄ™sci nie sÄ… zwiÄ…zane wyÅ‚Ä…cznie z narzÄ™dziami do dÅºwiÄ™ku i
+mogÄ… byÄ‡ przydatne do innych celÃ³w.
 
 %package -n ucl-common-devel
 Summary:	Header files for UCL Common Code Library
-Summary(pl):	Pliki nag³ówkowe do biblioteki wspólnego kodu UCL
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe do biblioteki wspÃ³lnego kodu UCL
 Version:	%{_commonlibver}
 Group:		Development/Libraries
 Requires:	ucl-common = %{_commonlibver}
@@ -84,20 +84,20 @@ Requires:	ucl-common = %{_commonlibver}
 %description -n ucl-common-devel
 Header files for UCL Common Code Library.
 
-%description -n ucl-common-devel -l pl
-Pliki nag³ówkowe biblioteki wspólnego kodu UCL.
+%description -n ucl-common-devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki wspÃ³lnego kodu UCL.
 
 %package -n ucl-common-static
 Summary:	UCL Common Code static library
-Summary(pl):	Statyczna biblioteka wspólnego kodu UCL
+Summary(pl.UTF-8):   Statyczna biblioteka wspÃ³lnego kodu UCL
 Group:		Development/Libraries
 Requires:	ucl-common-devel = %{_commonlibver}
 
 %description -n ucl-common-static
 UCL Common Code static library.
 
-%description -n ucl-common-static -l pl
-Statyczna biblioteka wspólnego kodu UCL.
+%description -n ucl-common-static -l pl.UTF-8
+Statyczna biblioteka wspÃ³lnego kodu UCL.
 
 %prep
 %setup -q
