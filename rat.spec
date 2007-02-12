@@ -4,7 +4,7 @@
 #
 %define		_commonlibver	1.2.16
 Summary:	Audio conference tool
-Summary(pl.UTF-8):   Narzędzie do audio-konferencji
+Summary(pl.UTF-8):	Narzędzie do audio-konferencji
 Name:		rat
 Version:	4.2.25
 Release:	2
@@ -58,7 +58,7 @@ dotyczącym konferencji audio i video z minimalną kontrolą.
 
 %package -n ucl-common
 Summary:	UCL Common Code Library
-Summary(pl.UTF-8):   Biblioteka wspólnego kodu UCL
+Summary(pl.UTF-8):	Biblioteka wspólnego kodu UCL
 Version:	%{_commonlibver}
 Group:		Libraries
 
@@ -76,7 +76,7 @@ mogą być przydatne do innych celów.
 
 %package -n ucl-common-devel
 Summary:	Header files for UCL Common Code Library
-Summary(pl.UTF-8):   Pliki nagłówkowe do biblioteki wspólnego kodu UCL
+Summary(pl.UTF-8):	Pliki nagłówkowe do biblioteki wspólnego kodu UCL
 Version:	%{_commonlibver}
 Group:		Development/Libraries
 Requires:	ucl-common = %{_commonlibver}
@@ -89,7 +89,7 @@ Pliki nagłówkowe biblioteki wspólnego kodu UCL.
 
 %package -n ucl-common-static
 Summary:	UCL Common Code static library
-Summary(pl.UTF-8):   Statyczna biblioteka wspólnego kodu UCL
+Summary(pl.UTF-8):	Statyczna biblioteka wspólnego kodu UCL
 Group:		Development/Libraries
 Requires:	ucl-common-devel = %{_commonlibver}
 
